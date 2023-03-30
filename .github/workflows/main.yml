@@ -25,7 +25,8 @@ jobs:
         env:
           IMAGE_NAME: linux_tweet_app_hilmy #create env called IMAGE_NAME consisted of actual name of Docker Image after we build
           PROJECT_ID: horizontal-veld-327901
-        run: docker build -t $IMAGE_NAME:latest . #build the docker image
+          VERSION: 1.0.1
+        run: docker build -t $IMAGE_NAME:$VERSION . #build the docker image
         
       - name: Configure Docker Client
         run:  |-
@@ -35,7 +36,8 @@ jobs:
         env: 
           IMAGE_NAME: linux_tweet_app_hilmy
           PROJECT_ID: horizontal-veld-327901
+          VERSION: 1.0.1
         #tag docker image to gcr image format then push to gcr
         run: |-
           docker tag $IMAGE_NAME:latest gcr.io/$PROJECT_ID/$IMAGE_NAME:latest 
-          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:latest
+          docker push gcr.io/$PROJECT_ID/$IMAGE_NAME:$VERSION
