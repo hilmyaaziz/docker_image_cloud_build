@@ -5,7 +5,7 @@ on:
       - master
       
 env:
-  IMAGE_NAME: tweet_app_hilmy
+  IMAGE_NAME: tweet-app-hilmy
   REGION: us-cenral1
 
 jobs:
